@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { useDispatch } from 'react-redux';
 
+import { getAccounts } from './actions/accounts.js';
 import Accounts from './components/Accounts/Accounts.js';
 import Form from './components/Form/Form.js'
 import logo from './images/logo.png';
@@ -8,6 +10,11 @@ import useStyles from './styles.js';
 
 const App = () => {
     const classes = useStyles();
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getAccounts());
+    }, [dispatch]);
 
     return (
         <Container maxidth="lg">

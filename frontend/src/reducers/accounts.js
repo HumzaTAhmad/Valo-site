@@ -3,7 +3,7 @@
 export default (state = [], actions) => {
     switch(actions.type) {
         case 'FETCH_ALL':
-            return state;
+            return actions.payload;
         case 'CREATE':
             return state;
         default:
