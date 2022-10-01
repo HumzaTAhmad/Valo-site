@@ -3,6 +3,7 @@ import internal from 'stream';
 
 
 const accountSchema = mongoose.Schema({
+    name: String,
     region: String,
     account_level: Number,
     tag: String,
