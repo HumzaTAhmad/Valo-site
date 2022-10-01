@@ -1,6 +1,10 @@
 import React from 'react';
+import useStyles from './styles.js';
 
 const Account = () => {
+
+    const classes = useStyles();
+
     return (
         <h1>Account</h1>
     );
