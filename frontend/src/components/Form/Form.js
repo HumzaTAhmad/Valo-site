@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper} from '@material-ui/core';
 import useStyles from './styles.js';
+import { useDispatch } from 'react-redux';
+import { postAccount } from '../../actions/accounts.js';
 
 const Form = () => {
 
@@ -10,16 +12,21 @@ const Form = () => {
         tag: ''
     });
 
-    const handleSubmit = () => {
+    const dispatch = useDispatch()
+    
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        dispatch(postAccount(accountData));
     }
     const clear = () => {
-        
+
     }
 
     return (
         <Paper className={classes.paper}>
-            <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
+            <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
             <Typography variant="h6">Search Valorant Account</Typography>
             <TextField
                 name="username"
