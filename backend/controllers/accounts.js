@@ -13,10 +13,12 @@ export const getAccount = async (req, res) => {
 }
 
 export const postAccount = (req, res) => {
-    console.log(req.body)
+    const username = req.body.username
+    const tag = req.body.tag
+    console.log(`the username is: ${username} and the tag is ${tag}`)
 
     try{
-        axios.get(`https://api.henrikdev.xyz/valorant/v1/account/Yxbai/NA1`).then( async (response) => {
+        axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${username}/${tag}`).then( async (response) => {
         const name = response.data.data.name;
         const region = response.data.data.region;
         const accountLevel = response.data.data.account_level;
