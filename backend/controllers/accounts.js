@@ -12,7 +12,7 @@ export const getAccount = async (req, res) => {
     }
 }
 
-export const postAccount = (req, res) => {
+export const postAccount = async (req, res) => {
     const username = req.body.username
     const tag = req.body.tag
     console.log(`the username is: ${username} and the tag is ${tag}`)
@@ -34,10 +34,10 @@ export const postAccount = (req, res) => {
         })
 
         await userData.save();
-
-        }).catch((error) =>console.error(error));
+        res.status(201).json(userData)
+        }).catch((error) => res.status(409).json({message: error.message}));
 
     }catch(error){
-        console.log("This doesn't WORK");
+        res.status(409).json({message: error.message});
     }
 }
