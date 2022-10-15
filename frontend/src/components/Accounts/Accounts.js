@@ -1,4 +1,5 @@
 import React from 'react';
+import {Grid, CircularProgress} from '@material-ui/core'
 import { useSelector } from 'react-redux';
 
 import Account from './Account/Account.js'
@@ -11,12 +12,16 @@ const Accounts = () => {
     console.log(accounts);
 
     return (
-        <>
-            <h1>Accounts</h1>
-            <Account />
-            <Account />
-        
-        </>
+        //if acccounts length is zero then its true that we show a loader
+       !accounts.length ? <CircularProgress /> : (
+            <Grid className={classes.container} container alignItems="stretch" spacing={3}>
+                {accounts.map((account) => (
+                    <Grid key={account._id} item xs={12} sm={6}>
+                        <Account account={account} />
+                    </Grid>
+                ))}
+            </Grid>
+       )
     );
 }
 
