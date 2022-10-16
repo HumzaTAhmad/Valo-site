@@ -27,8 +27,9 @@ const Form = () => {
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <Typography variant="h6">Search Valorant Account</Typography>
+            <Typography variant="h6" fontWeight="bold">Search Valorant Account</Typography>
             <TextField
+                className={classes.textField}
                 name="username"
                 variant="outlined"
                 label="Username"
@@ -37,6 +38,7 @@ const Form = () => {
                 onChange={(e) => setAccountData({ ...accountData, username: e.target.value})}
             />
              <TextField
+                className={classes.textField}
                 name="tag"
                 variant="outlined"
                 label="Tag"

@@ -4,10 +4,12 @@ export default makeStyles((theme) => ({
   root: {
     '& .MuiTextField-root': {
       margin: theme.spacing(1),
+
     },
   },
   paper: {
     padding: theme.spacing(2),
+    background: '#364966',
 
   },
   form: {
@@ -18,11 +20,16 @@ export default makeStyles((theme) => ({
   fileInput: {
     width: '97%',
     margin: '10px 0',
+    
   },
   buttonSubmit: {
     marginBottom: 10,
-    background: 'rgb(255, 0, 0)',
+    background: '#fa4454',
     color: 'black',
     fontWeight: 'bold'
   },
+  textField: {
+    background: 'white',
+    color: 'black',
+  }
 }));

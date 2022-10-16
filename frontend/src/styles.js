@@ -8,14 +8,16 @@ export default makeStyles(() => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    background: '#364966',
   },
   heading: {
-    color: 'rgb(255, 0, 0)',
+    background: '#364966',
+    color: '#fa4454'
   },
   image: {
     marginLeft: '15px',
   },
   box: {
-    display: 'flex'
+    display: 'flex',
   }
 }));
