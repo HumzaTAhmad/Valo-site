@@ -9,7 +9,8 @@ const Form = () => {
     const classes = useStyles();
     const [accountData, setAccountData] = useState({
         username: '', 
-        tag: ''
+        tag: '',
+        region: ''
     });
 
     const dispatch = useDispatch()
@@ -37,7 +38,7 @@ const Form = () => {
                 value={accountData.username}
                 onChange={(e) => setAccountData({ ...accountData, username: e.target.value})}
             />
-             <TextField
+            <TextField
                 className={classes.textField}
                 name="tag"
                 variant="outlined"
@@ -45,6 +46,15 @@ const Form = () => {
                 fullWidth
                 value={accountData.tag}
                 onChange={(e) => setAccountData({ ...accountData, tag: e.target.value})}
+            />
+            <TextField
+                className={classes.textField}
+                name="region"
+                variant="outlined"
+                label="Region"
+                fullWidth
+                value={accountData.region}
+                onChange={(e) => setAccountData({ ...accountData, region: e.target.value})}
             />
             <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
             <Button className={classes.buttonSubmit} variant="contained" color="secondary" size="small" oncClick={clear} fullWidth>Clear</Button>

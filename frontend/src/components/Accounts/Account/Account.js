@@ -15,8 +15,19 @@ const Account = ({account}) => {
             <CardMedia className={classes.media} image={account.image} title={account.name}/>
             <div className={classes.overlay}>
                 <Typography variant="h6">{account.name}</Typography>
-                
+                <Typography variant="body2">{moment(account.foundAt).fromNow()}</Typography>
             </div>
+            <div className={classes.overlay2}>
+                <Button style={{color: 'white'}} size="small" onClick={() => {}}>
+                    <MoreHorizIcon fontSize="default" />
+                </Button>
+            </div>
+            <CardContent>
+                <Typography className={classes.title} variant="h6" gutterBottom>Username: {account.name}</Typography>
+                <Typography className={classes.title} variant="h6" gutterBottom>Tagline: {account.tag}</Typography>
+                <Typography className={classes.title} variant="h6" gutterBottom>Level: {account.account_level}</Typography>
+            </CardContent>
+            
         </Card>
     );
 }

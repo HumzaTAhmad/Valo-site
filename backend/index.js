@@ -10,8 +10,8 @@ dotenv.config()
 
 const app = express();
 
-app.use(bodyParser.json({limit: "50mb, extended: true"}));
-app.use(bodyParser.urlencoded({limit: "30mb", extended: true}));
+app.use(bodyParser.json({limit: "750mb, extended: true"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true}));
 app.use(cors());
 
 app.use("/account", accountRoutes);

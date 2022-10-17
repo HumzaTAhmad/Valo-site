@@ -7,7 +7,13 @@ const accountSchema = mongoose.Schema({
     region: String,
     account_level: Number,
     tag: String,
-    image: String
+    foundAt: {
+        type: Date,
+        default: new Date()
+    },
+    image: String,
+    rank: String,
+    rank_image: String
 });
 
 const accountModel = mongoose.model('accountModel', accountSchema);
