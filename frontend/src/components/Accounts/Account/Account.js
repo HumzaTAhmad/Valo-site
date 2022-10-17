@@ -25,9 +25,10 @@ const Account = ({account}) => {
             <CardContent>
                 <Typography className={classes.title} variant="h6" gutterBottom>Username: {account.name}</Typography>
                 <Typography className={classes.title} variant="h6" gutterBottom>Tagline: {account.tag}</Typography>
+                <Typography className={classes.title} variant="h6" gutterBottom>Region: {account.region.toUpperCase()}</Typography>
                 <Typography className={classes.title} variant="h6" gutterBottom>Level: {account.account_level}</Typography>
+                <Typography className={classes.title} variant="h6" gutterBottom>Rank: {account.rank}</Typography>
             </CardContent>
-            
         </Card>
     );
 }
