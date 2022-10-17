@@ -29,6 +29,16 @@ const Account = ({account}) => {
                 <Typography className={classes.title} variant="h6" gutterBottom>Level: {account.account_level}</Typography>
                 <Typography className={classes.title} variant="h6" gutterBottom>Rank: {account.rank}</Typography>
             </CardContent>
+            <CardActions className={classes.cardActions}>
+                <Button size="small" color="primary" onClick={() => {}}>
+                    <ThumbUpAltIcon fontSize="small" />
+                    Like
+                </Button>
+                <Button size="small" color="primary" onClick={() => {}}>
+                    <DeleteIcon fontSize="small" />
+                    Delete
+                </Button>
+            </CardActions>
         </Card>
     );
 }
