@@ -12,7 +12,11 @@ export default makeStyles(() => ({
   },
   heading: {
     background: '#364966',
-    color: '#fa4454'
+    color: '#fa4454',
+    fontFamily: [
+      'Valorant',
+      'sans-serif',
+    ].join(','),
   },
   image: {
     marginLeft: '15px',

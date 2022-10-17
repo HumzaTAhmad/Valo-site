@@ -28,7 +28,7 @@ const Form = () => {
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <Typography variant="h6" fontWeight="bold">Search Valorant Account</Typography>
+            <Typography className={classes.valFont} variant="h6" fontWeight="bold">Search Valorant Account</Typography>
             <TextField
                 className={classes.textField}
                 name="username"

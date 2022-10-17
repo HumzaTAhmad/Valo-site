@@ -26,10 +26,20 @@ export default makeStyles((theme) => ({
     marginBottom: 10,
     background: '#fa4454',
     color: 'black',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: [
+      'Valorant',
+      'sans-serif',
+    ].join(','),
   },
   textField: {
     background: 'white',
     color: 'black',
+  },
+  valFont: {
+    fontFamily: [
+      'Valorant',
+      'sans-serif',
+    ].join(','),
   }
 }));
