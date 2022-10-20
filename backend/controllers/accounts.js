@@ -1,5 +1,6 @@
 import accountModel from './../models/accountModel.js';
 import axios from 'axios'
+import mongoose from 'mongoose';
 
 //This REST endpoint allows users to retrive accoutns from the database
 export const getAccount = async (req, res) => {
@@ -48,4 +49,15 @@ export const postAccount = async (req, res) => {
     }catch(error){
         res.status(409).json({message: error.message});
     }
+}
+
+export const updateAccount = async(req, res) => {
+    const { id: _id } = req.param;
+    const account = req.body;
+
+    if(mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No acc with that id');
+
+    const updatedAccount = await accountModel.findByIdAndUpdate(_id, account, {new: true})
+    
+    res.json(updatedAccount);
 }
