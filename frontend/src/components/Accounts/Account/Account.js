@@ -29,10 +29,12 @@ const Account = ({account}) => {
                 <Typography className={classes.title} variant="h6" gutterBottom>Level: {account.account_level}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button disabled="true" size="small" color="primary" onClick={() => {}}>
+                <Button size="small" color="primary" onClick={() => {}}>
                     <Icon fontSize='large'>
                         <img src={val} height={40} width={20}/>
                     </Icon>
+                    Like
+                    {account.likeCount}
                 </Button>
                 <Button size="small" color="primary" onClick={() => {}}>
                     <Icon fontSize='large'>
