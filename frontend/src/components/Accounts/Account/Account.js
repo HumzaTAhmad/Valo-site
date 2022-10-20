@@ -7,7 +7,7 @@ import moment from 'moment';
 import useStyles from './styles.js';
 import val from '../../../images/val.svg'
 import delete_logo from '../../../images/delete_logo.svg'
-const Account = ({account}) => {
+const Account = ({account, setCurrentId}) => {
 
     const classes = useStyles();
 
@@ -19,7 +19,7 @@ const Account = ({account}) => {
                 <Typography variant="body2">{moment(account.foundAt).fromNow()}</Typography>
             </div>
             <div className={classes.overlay2}>
-                <Button style={{color: 'white'}} size="small" onClick={() => {}}>
+                <Button style={{color: 'white'}} size="small" onClick={() => setCurrentId(account._id)}>
                     <MoreHorizIcon fontSize="default" />
                 </Button>
             </div>

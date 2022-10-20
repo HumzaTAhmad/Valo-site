@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { TextField, Button, Typography, Paper} from '@material-ui/core';
 import useStyles from './styles.js';
 import { useDispatch } from 'react-redux';
-import { postAccount } from '../../actions/accounts.js';
+import { postAccount, updateAccount} from '../../actions/accounts.js';
 
-const Form = () => {
+const Form = ({currentId, setCurrentId}) => {
 
     const classes = useStyles();
     const [accountData, setAccountData] = useState({
@@ -19,7 +19,11 @@ const Form = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(postAccount(accountData));
+        if(currentId) {
+            dispatch(updateAccount(currentId, accountData))
+        }else{
+            dispatch(postAccount(accountData));
+        }
     }
     const clear = () => {
 
