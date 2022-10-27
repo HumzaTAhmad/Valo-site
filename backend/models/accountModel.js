@@ -11,6 +11,10 @@ const accountSchema = mongoose.Schema({
         type: Date,
         default: new Date()
     },
+    likeCount: {
+        type: Number,
+        default: 0
+    },
     image: String,
     rank: String,
     rank_image: String

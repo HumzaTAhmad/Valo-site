@@ -52,7 +52,7 @@ export const postAccount = async (req, res) => {
 }
 
 export const updateAccount = async(req, res) => {
-    const { id: _id } = req.params;
+    const { id: _id } = req.param;
     const account = req.body;
 
     if(mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No acc with that id');
