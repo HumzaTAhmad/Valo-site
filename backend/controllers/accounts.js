@@ -52,12 +52,23 @@ export const postAccount = async (req, res) => {
 }
 
 export const updateAccount = async(req, res) => {
-    const _id = req.body._id;
+    const {id} = req.params
     const account = req.body;
+    
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No acc with that id');
 
-    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No acc with that id');
-
-    const updatedAccount = await accountModel.findByIdAndUpdate(_id, account, {new: true});
+    const updatedAccount = await accountModel.findByIdAndUpdate(id, account, {new: true});
     
     res.json(updatedAccount);
+}
+
+export const deleteAccount = async(req, res) => {
+    const {id} = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send('No acc with that id');
+
+    await accountModel.findByIdAndRemove(id);
+
+
+    res.json({ message: 'Account deleted successfully' })
 }

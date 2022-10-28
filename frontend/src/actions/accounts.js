@@ -15,7 +15,7 @@ export const getAccounts = () => async(dispatch) => {
 export const postAccount = (account) => async(dispatch) => {
     try {
         const {data} = await api.createAccount(account);
-        console.log(data);
+    
         dispatch({type: 'CREATE', payload: data});
     }catch(error){
         console.log(error);
@@ -28,6 +28,17 @@ export const updateAccount = (id, account) => async (dispatch) => {
    
         dispatch({type: 'UPDATE', payload: data});
     }catch (error) {
-        console.log(error.message);
+        console.log(error);
+    }
+}
+
+export const deleteAccount = (id) => async (dispatch) => {
+    try {
+        console.log(id)
+        await api.deleteAccount(id);
+        console.log("Does thi run")
+        dispatch({type: 'DELETE', payload: id})
+    }catch (error) {
+        console.log(error);
     }
 }

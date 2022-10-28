@@ -16,7 +16,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(getAccounts());
-    }, [dispatch]);
+    }, [currentId, dispatch]);
 
  
 

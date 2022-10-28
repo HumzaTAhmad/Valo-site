@@ -7,9 +7,14 @@ import moment from 'moment';
 import useStyles from './styles.js';
 import val from '../../../images/val.svg'
 import delete_logo from '../../../images/delete_logo.svg'
+import { useDispatch } from 'react-redux';
+
+import { deleteAccount } from '../../../actions/accounts.js'
+
 const Account = ({account, setCurrentId}) => {
 
     const classes = useStyles();
+    const dispatch = useDispatch();
 
     return (
         <Card className={classes.card}>
@@ -34,7 +39,7 @@ const Account = ({account, setCurrentId}) => {
                         <img src={val} height={40} width={20}/>
                     </Icon>
                 </Button>
-                <Button size="small" color="primary" onClick={() => {}}>
+                <Button size="small" color="primary" onClick={() => dispatch(deleteAccount(account._id))}>
                     <Icon fontSize='large'>
                         <img src={delete_logo} height={40} width={20}/> Delete
                     </Icon>

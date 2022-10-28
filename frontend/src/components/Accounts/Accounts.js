@@ -9,7 +9,7 @@ const Accounts = ({setCurrentId}) => {
     const accounts = useSelector((state) => state.accounts)
     const classes = useStyles();
 
-    console.log(accounts);
+   
 
     return (
         //if acccounts length is zero then its true that we show a loader

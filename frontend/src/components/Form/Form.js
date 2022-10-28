@@ -20,8 +20,6 @@ const Form = ({currentId, setCurrentId}) => {
     useEffect(() => {
         if(account) setAccountData(account);
     }, [account])
-    console.log(accountData)
-    console.log(account)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,16 +29,19 @@ const Form = ({currentId, setCurrentId}) => {
         }else{
             dispatch(postAccount(accountData));
         }
+
+        clear();
     }
     
     const clear = () => {
-
+        setCurrentId(null)
+        setAccountData({name: '', tag: '', region: '', account_level: '', foundAt: '', image: '', rank: '', rank_image: ''})
     }
 
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <Typography className={classes.valFont} variant="h6" fontWeight="bold">Search Valorant Account</Typography>
+            <Typography className={classes.valFont} variant="h6" fontWeight="bold">{currentId ? 'Editing' : 'Searching'} Valorant Account</Typography>
             <TextField
                 className={classes.textField}
                 name="username"
@@ -69,7 +70,7 @@ const Form = ({currentId, setCurrentId}) => {
                 onChange={(e) => setAccountData({ ...accountData, region: e.target.value})}
             />
             <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
-            <Button className={classes.buttonSubmit} variant="contained" color="secondary" size="small" oncClick={clear} fullWidth>Clear</Button>
+            <Button className={classes.buttonSubmit} variant="contained" color="secondary" size="small" onClick={clear} fullWidth>Clear</Button>
             </form>
         </Paper>
     );
