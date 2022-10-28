@@ -1,26 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Paper} from '@material-ui/core';
 import useStyles from './styles.js';
-import { useDispatch } from 'react-redux';
-import { postAccount } from '../../actions/accounts.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { postAccount, updateAccount } from '../../actions/accounts.js';
 
-const Form = () => {
+
+const Form = ({currentId, setCurrentId}) => {
 
     const classes = useStyles();
     const [accountData, setAccountData] = useState({
-        username: '', 
+        name: '', 
         tag: '',
         region: ''
     });
 
+    const account = useSelector((state) => currentId ? state.accounts.find((acc) => acc._id === currentId) : null);
     const dispatch = useDispatch()
     
+    useEffect(() => {
+        if(account) setAccountData(account);
+    }, [account])
+    console.log(accountData)
+    console.log(account)
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(postAccount(accountData));
+        if(currentId) {
+            dispatch(updateAccount(currentId, accountData));
+        }else{
+            dispatch(postAccount(accountData));
+        }
     }
+    
     const clear = () => {
 
     }
@@ -35,8 +47,8 @@ const Form = () => {
                 variant="outlined"
                 label="Username"
                 fullWidth
-                value={accountData.username}
-                onChange={(e) => setAccountData({ ...accountData, username: e.target.value})}
+                value={accountData.name}
+                onChange={(e) => setAccountData({ ...accountData, name: e.target.value})}
             />
             <TextField
                 className={classes.textField}

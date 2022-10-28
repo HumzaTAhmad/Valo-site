@@ -21,3 +21,13 @@ export const postAccount = (account) => async(dispatch) => {
         console.log(error);
     }
 }
+
+export const updateAccount = (id, account) => async (dispatch) => {
+    try {
+        const {data} = await api.updateAccount(id, account);
+   
+        dispatch({type: 'UPDATE', payload: data});
+    }catch (error) {
+        console.log(error.message);
+    }
+}

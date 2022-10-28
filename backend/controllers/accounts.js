@@ -15,7 +15,7 @@ export const getAccount = async (req, res) => {
 
 //This REST endpoint allows the users to create accounts into the database
 export const postAccount = async (req, res) => {
-    const username = req.body.username
+    const username = req.body.name
     const tag = req.body.tag 
     const region = req.body.region
 
@@ -52,12 +52,12 @@ export const postAccount = async (req, res) => {
 }
 
 export const updateAccount = async(req, res) => {
-    const { id: _id } = req.param;
+    const _id = req.body._id;
     const account = req.body;
 
-    if(mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No acc with that id');
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No acc with that id');
 
-    const updatedAccount = await accountModel.findByIdAndUpdate(_id, account, {new: true})
+    const updatedAccount = await accountModel.findByIdAndUpdate(_id, account, {new: true});
     
     res.json(updatedAccount);
 }

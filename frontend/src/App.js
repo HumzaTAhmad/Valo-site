@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
@@ -10,6 +10,7 @@ import logo from './images/logo.png';
 import useStyles from './styles.js';
 
 const App = () => {
+    const [currentId, setCurrentId] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch()
 
@@ -35,10 +36,10 @@ const App = () => {
                     <Container>
                         <Grid Container className={classes.box} justify="space-between" alignItems="stretch" spacing={3}>
                             <Grid item xs={12} sm={7}>
-                                <Accounts />
+                                <Accounts setCurrentId={setCurrentId}/>
                             </Grid>
                             <Grid item xs={12} sm={4}>
-                                <Form />
+                                <Form currentId={currentId} setCurrentId={setCurrentId}/>
                             </Grid>
                         </Grid>
                     </Container>
