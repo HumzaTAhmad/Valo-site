@@ -18,6 +18,8 @@ export const postAccount = async (req, res) => {
     const username = req.body.name
     const tag = req.body.tag 
     const region = req.body.region
+    const foundAt = new Date()
+    console.log(foundAt)
 
     const requestOne = axios.get(`https://api.henrikdev.xyz/valorant/v1/account/${username}/${tag}`);
     const requestTwo = axios.get(`https://api.henrikdev.xyz/valorant/v1/mmr-history/${region}/${username}/${tag}`);
@@ -37,6 +39,7 @@ export const postAccount = async (req, res) => {
             region: region,
             account_level: accountLevel,
             tag: tag,
+            foundAt: foundAt,
             image: card,
             rank: rank,
             rank_image: rankImage

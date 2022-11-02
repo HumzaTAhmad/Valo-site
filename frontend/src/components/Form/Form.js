@@ -11,7 +11,7 @@ const Form = ({currentId, setCurrentId}) => {
     const [accountData, setAccountData] = useState({
         name: '', 
         tag: '',
-        region: ''
+        region: '',
     });
 
     const account = useSelector((state) => currentId ? state.accounts.find((acc) => acc._id === currentId) : null);

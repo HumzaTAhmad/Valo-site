@@ -9,7 +9,6 @@ const accountSchema = mongoose.Schema({
     tag: String,
     foundAt: {
         type: Date,
-        default: new Date()
     },
     image: String,
     rank: String,
